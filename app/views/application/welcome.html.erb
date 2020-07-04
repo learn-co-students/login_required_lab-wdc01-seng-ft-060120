@@ -1,0 +1,11 @@
+<h1>Welcome, <%= session[:name] %>.</h1>
+
+<%= link_to "Access My Secrets", secrets_path%><br><br>
+
+<% if session[:name]%>
+    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type=submit value='logout'>
+    <% end %>
+<% else %>
+    <%= link_to "Login", login_path%>
+<% end %>
